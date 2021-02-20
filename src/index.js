@@ -13,5 +13,13 @@ inputAreaRef.addEventListener(
 function searchCountry(name) {
   fetch(`https://restcountries.eu/rest/v2/name/${name}`)
     .then(res => res.json())
-    .then(country => console.log(country[0]));
+    .then(data => {
+      if (data.length > 10) {
+        throw new Error('Уточните свой запрос');
+      } else {
+        return data;
+      }
+    })
+    .then(console.log)
+    .catch(console.log);
 }
