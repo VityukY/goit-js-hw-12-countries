@@ -1,4 +1,6 @@
 import './styles.css';
+import { errorMessage } from './js/notification';
+
 const debounce = require('lodash.debounce');
 
 const inputAreaRef = document.querySelector('#input-area');
@@ -15,11 +17,11 @@ function searchCountry(name) {
     .then(res => res.json())
     .then(data => {
       if (data.length > 10) {
-        throw new Error('Уточните свой запрос');
+        /*throw new Error('to large requst');*/
+        errorMessage();
+        return;
       } else {
         return data;
       }
-    })
-    .then(console.log)
-    .catch(console.log);
+    });
 }
