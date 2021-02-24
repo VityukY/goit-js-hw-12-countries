@@ -18,3 +18,6 @@ body {
    */
   background-image: url('./images/bg-pattern.png');
 }
+.list {
+  list-style: none;
+}
